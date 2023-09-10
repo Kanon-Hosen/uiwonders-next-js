@@ -6,9 +6,9 @@ const Design = client.db("DesignDevs").collection("Design");
 export const GET = async (req, res) => {
   try {
     const category = req?.url?.split("/design/category/")[1];
-      const design = await Design?.find({ category: category}).toArray();
-      console.log(category)
-    Response.json(
+    const design = await Design?.find({ category: category }).toArray();
+    console.log(category);
+    return Response.json(
       {
         success: true,
         message: "Successfully design with category",
@@ -17,11 +17,11 @@ export const GET = async (req, res) => {
       { status: 200 }
     );
   } catch (error) {
-    Response.json(
+    return Response.json(
       {
-        success: true,
+        success: false,
         message: error.message,
-        data: [],
+        data: false,
       },
       { status: 500 }
     );

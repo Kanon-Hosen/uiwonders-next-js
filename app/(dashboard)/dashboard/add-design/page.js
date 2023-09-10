@@ -101,7 +101,7 @@ function AddDesign() {
             className="p-2 border-2 border-black placeholder-black mt-1"
           >
             <option value="Web">Web</option>
-            <option value="Web">Mobile</option>
+            <option value="Mobile">Mobile</option>
           </select>
         </div>
         <div className="flex flex-col">

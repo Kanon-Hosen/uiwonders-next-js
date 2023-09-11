@@ -17,7 +17,10 @@ export default function RootLayout({ children }) {
       <div className="md:col-span-1 ">
         <Sidebar toggle={toggle} setToggle={setToggle} />
       </div>
+      <div className="md:col-span-4">
       {children}
+
+      </div>
     </div>
   );
 }

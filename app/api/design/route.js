@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { client, db } from "../route";
 
 db();
@@ -37,5 +38,25 @@ export const POST = async (req) => {
             message: error.message,
             data:null
         })
+    }
+}
+
+export const DELETE = async (req, res) => {
+    try {
+        const url = new URL(req.url);
+        const id = url.searchParams.get('id');
+        console.log(id);
+        const design = await Design.deleteOne({_id:new ObjectId(id)});
+        return Response.json({
+            success: true,
+            message: "Delete Successfully",
+            data: design
+         },{status: 200})
+    } catch (error) {
+        return Response.json({
+            success: false,
+            message: error.message,
+            data: []
+         },{status: 500})
     }
 }
